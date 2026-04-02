@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Наталья Жунёва — премиальный дизайн для бизнеса</title>
+  <meta
+    name="description"
+    content="Премиальный сайт-визитка графического дизайнера Натальи Жунёвой. Оформление соцсетей, инфографика для маркетплейсов, баннеры, сайты-визитки и визуальная упаковка бизнеса."
+  />
+
+  <style>
+    /* =========================================================
+       1. ПРЕМИАЛЬНАЯ ПАЛИТРА И БАЗОВЫЕ ПЕРЕМЕННЫЕ
+       Основная идея:
+       - светлый, дорогой, воздушный интерфейс
+       - нежные сине-голубые оттенки
+       - стеклянные карточки
+       - мягкие тени
+       - спокойный премиальный стиль
+       ========================================================= */
+    :root {
+      --bg-main: #f4f9ff;
+      --bg-secondary: #edf5ff;
+      --bg-soft: rgba(255, 255, 255, 0.68);
+      --white: #ffffff;
+
+      --text-main: #1e3150;
+      --text-dark: #16263f;
+      --text-muted: #6e85a3;
+
+      --accent: #7aa9df;
+      --accent-deep: #5f8fcf;
+      --accent-soft: #dcecff;
+      --accent-glow: rgba(122, 169, 223, 0.25);
+
+      --line: rgba(181, 210, 240, 0.65);
+      --line-strong: rgba(122, 169, 223, 0.32);
+
+      --shadow-soft: 0 18px 50px rgba(102, 145, 197, 0.12);
+      --shadow-card: 0 20px 60px rgba(92, 134, 183, 0.14);
+      --shadow-button: 0 14px 30px rgba(95, 143, 207, 0.28);
+
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+
+      --max-width: 1220px;
+    }
+
+    /* =========================================================
+       2. СБРОС СТИЛЕЙ
+       ========================================================= */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.95) 0%, rgba(244,249,255,0.95) 34%, transparent 58%),
+        radial-gradient(circle at top right, rgba(220,236,255,0.7) 0%, transparent 38%),
+        linear-gradient(180deg, #f8fbff 0%, #f2f8ff 50%, #eef5ff 100%);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 100px 0;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--text-dark);
+    }
+
+    .section-text {
+      max-width: 760px;
+      margin: 0 0 34px;
+      color: var(--text-muted);
+      font-size: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 10px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-deep);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(122, 169, 223, 0.08);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      box-shadow: 0 0 0 6px rgba(122, 169, 223, 0.12);
+    }
+
+    /* =========================================================
+       3. ОБЩИЙ СТИЛЬ ПРЕМИАЛЬНЫХ КАРТОЧЕК
+       ========================================================= */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.60);
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.28s ease, border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .glass-card:hover {
+      background: rgba(220, 236, 255, 0.78);
+      border-color: rgba(122, 169, 223, 0.48);
+      transform: translateY(-4px);
+      box-shadow: 0 26px 65px rgba(92, 134, 183, 0.20);
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.38) 0%,
+        rgba(255,255,255,0.08) 45%,
+        rgba(122,169,223,0.05) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       4. КНОПКИ
+       ========================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.28s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      box-shadow: var(--shadow-button);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(95, 143, 207, 0.34);
+    }
+
+    .btn-secondary {
+      color: var(--text-dark);
+      background: rgba(255, 255, 255, 0.64);
+      border-color: var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.86);
+    }
+
+    /* =========================================================
+       5. ШАПКА
+       ========================================================= */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(244, 249, 255, 0.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(181, 210, 240, 0.30);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(122,169,223,0.28), rgba(255,255,255,0.95));
+      border: 1px solid rgba(255,255,255,0.82);
+      box-shadow: 0 8px 18px rgba(122, 169, 223, 0.14);
+      color: var(--accent-deep);
+      font-weight: 800;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav a {
+      color: var(--text-muted);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--accent-deep);
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .burger {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
+      color: var(--text-dark);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       6. HERO-БЛОК
+       ========================================================= */
+    .hero {
+      padding: 70px 0 40px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,169,223,0.20) 0%, rgba(122,169,223,0.05) 45%, transparent 70%);
+      pointer-events: none;
+      filter: blur(8px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: -80px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(220,236,255,0.86) 0%, rgba(220,236,255,0.10) 55%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .hero-title {
+      margin: 0 0 22px;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      color: var(--text-dark);
+    }
+
+    .hero-title span {
+      display: inline-block;
+      color: var(--accent-deep);
+      text-shadow: 0 6px 20px rgba(122,169,223,0.16);
+    }
+
+    .hero-text {
+      max-width: 660px;
+      margin: 0 0 34px;
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 760px;
+    }
+
+    .metric-card {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(255,255,255,0.76);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .metric-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 28px;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+    }
+
+    .metric-card span {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .hero-visual {
+      min-height: 620px;
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.52), rgba(255,255,255,0.26)),
+        linear-gradient(135deg, rgba(220,236,255,0.75), rgba(255,255,255,0.65));
+      border: 1px solid rgba(255,255,255,0.80);
+      box-shadow: 0 30px 80px rgba(106, 146, 195, 0.18);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      top: -70px;
+      right: -30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,169,223,0.28) 0%, rgba(122,169,223,0.04) 60%, transparent 70%);
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      bottom: -80px;
+      left: -60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(220,236,255,0.18) 55%, transparent 70%);
+    }
+
+    .hero-panel {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 410px;
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.70);
+      border: 1px solid rgba(255,255,255,0.85);
+      box-shadow: 0 24px 54px rgba(97, 141, 189, 0.16);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-panel small {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--accent-deep);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-panel h3 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--text-dark);
+    }
+
+    .hero-panel p {
+      margin: 0 0 20px;
+      color: var(--text-muted);
+    }
+
+    .mini-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-point {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(181,210,240,0.40);
+    }
+
+    .mini-point-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      box-shadow: 0 0 0 7px rgba(122,169,223,0.12);
+      flex: 0 0 10px;
+    }
+
+    /* =========================================================
+       7. БЛОК "ОБО МНЕ"
+       ========================================================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .about-main,
+    .about-side {
+      padding: 34px;
+    }
+
+    .about-main h3,
+    .about-side h3 {
+      margin: 0 0 16px;
+      font-size: 30px;
+      color: var(--text-dark);
+    }
+
+    .about-main p,
+    .about-side p {
+      margin: 0 0 16px;
+      color: var(--text-muted);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.52);
+      border: 1px solid rgba(181,210,240,0.36);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(122,169,223,0.22), rgba(255,255,255,0.96));
+      color: var(--accent-deep);
+      font-size: 18px;
+      flex: 0 0 44px;
+    }
+
+    .feature-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    .feature-item span {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .about-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .about-mini-box {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.50);
+      border: 1px solid rgba(181,210,240,0.34);
+    }
+
+    .about-mini-box h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--text-dark);
+    }
+
+    .about-mini-box p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* =========================================================
+       8. УСЛУГИ
+       ========================================================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .service-card {
+      padding: 30px;
+    }
+
+    .service-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(122,169,223,0.24), rgba(255,255,255,0.95));
+      color: var(--accent-deep);
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(122,169,223,0.12);
+    }
+
+    .service-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      color: var(--text-dark);
+    }
+
+    .service-card p {
+      margin: 0 0 18px;
+      color: var(--text-muted);
+    }
+
+    .service-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-main);
+    }
+
+    .service-card li + li {
+      margin-top: 10px;
+    }
+
+    /* =========================================================
+       9. ПОРТФОЛИО
+       ========================================================= */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .portfolio-card {
+      overflow: hidden;
+    }
+
+    .portfolio-preview {
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--accent-deep);
+      font-size: 18px;
+      font-weight: 700;
+      background:
+        linear-gradient(135deg, rgba(122,169,223,0.18), rgba(255,255,255,0.24)),
+        linear-gradient(180deg, rgba(220,236,255,0.56), rgba(255,255,255,0.72));
+      border-bottom: 1px solid rgba(181,210,240,0.34);
+    }
+
+    .portfolio-content {
+      padding: 26px;
+    }
+
+    .portfolio-content h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+      color: var(--text-dark);
+    }
+
+    .portfolio-content p {
+      margin: 0 0 14px;
+      color: var(--text-muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-right: 8px;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(181,210,240,0.40);
+      color: var(--accent-deep);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       10. БЛОК ПРЕИМУЩЕСТВ
+       ========================================================= */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .value-card {
+      padding: 30px;
+    }
+
+    .value-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      color: var(--text-dark);
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    /* =========================================================
+       11. ЭТАПЫ РАБОТЫ
+       ========================================================= */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .process-card {
+      padding: 28px;
+    }
+
+    .process-step {
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      box-shadow: var(--shadow-button);
+    }
+
+    .process-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: var(--text-dark);
+    }
+
+    .process-card p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    /* =========================================================
+       12. ОТЗЫВЫ
+       ========================================================= */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .review-card {
+      padding: 30px;
+    }
+
+    .review-stars {
+      margin-bottom: 16px;
+      color: var(--accent-deep);
+      letter-spacing: 2px;
+      font-size: 18px;
+    }
+
+    .review-card p {
+      margin: 0 0 18px;
+      color: var(--text-muted);
+    }
+
+    .review-author {
+      color: var(--text-dark);
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       13. КОНТАКТЫ
+       ========================================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.96fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-card {
+      padding: 34px;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 16px;
+      font-size: 30px;
+      color: var(--text-dark);
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0 28px;
+    }
+
+    .contact-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.54);
+      border: 1px solid rgba(181,210,240,0.36);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    .contact-item a,
+    .contact-item span {
+      color: var(--text-muted);
+      word-break: break-word;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(181,210,240,0.40);
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+      font: inherit;
+      color: var(--text-main);
+      outline: none;
+      transition: 0.22s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(122,169,223,0.14);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .contact-form textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .contact-note {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* =========================================================
+       14. ПОДВАЛ
+       ========================================================= */
+    .footer {
+      padding: 30px 0 36px;
+      border-top: 1px solid rgba(181,210,240,0.24);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================
+       15. АДАПТИВНОСТЬ
+       ========================================================= */
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .portfolio-grid,
+      .reviews-grid,
+      .value-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-visual {
+        min-height: 470px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .header-inner {
+        min-height: 74px;
+      }
+
+      .burger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header-cta .btn {
+        display: none;
+      }
+
+      .nav {
+        display: none;
+        position: fixed;
+        top: 78px;
+        left: 16px;
+        right: 16px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        background: rgba(255,255,255,0.88);
+        border: 1px solid rgba(181,210,240,0.42);
+        border-radius: 22px;
+        box-shadow: var(--shadow-card);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .hero-metrics,
+      .about-mini-grid,
+      .services-grid,
+      .portfolio-grid,
+      .process-grid,
+      .reviews-grid,
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero-title {
+        font-size: clamp(38px, 11vw, 58px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       ШАПКА САЙТА
+       Здесь находится логотип, меню и кнопка связи
+       ========================================================= -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">
+        <span class="logo-mark">НЖ</span>
+        <span>Наталья Жунёва</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#about">Обо мне</a>
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#values">Преимущества</a>
+        <a href="#process">Этапы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#contacts" class="btn btn-secondary">Оставить заявку</a>
+        <button class="burger" id="burger" aria-label="Открыть меню">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================================================
+         HERO-БЛОК
+         Главный экран в премиальном стиле
+         ========================================================= -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="eyebrow">Премиальный дизайн для бизнеса</div>
+
+          <h1 class="hero-title">
+            Визуал, который выглядит
+            <span>дорого, чисто и профессионально</span>
+          </h1>
+
+          <p class="hero-text">
+            Я — Наталья Жунёва, графический дизайнер. Создаю эстетичную и продуманную
+            визуальную упаковку для экспертов, мастеров и бизнеса: оформление соцсетей,
+            инфографику для маркетплейсов, баннеры, презентации и сайты-визитки.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contacts" class="btn btn-primary">Обсудить проект</a>
+            <a href="#portfolio" class="btn btn-secondary">Посмотреть работы</a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <strong>Эстетика</strong>
+              <span>чистый и дорогой визуальный стиль без перегруза</span>
+            </div>
+            <div class="metric-card">
+              <strong>Смысл</strong>
+              <span>дизайн не ради картинки, а для результата и впечатления</span>
+            </div>
+            <div class="metric-card">
+              <strong>Подход</strong>
+              <span>индивидуальная подача под нишу, аудиторию и задачи</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!--
+            СЮДА МОЖНО ДОБАВИТЬ СВОЮ ФОТОГРАФИЮ
+
+            Вариант замены:
+            Удали блок .hero-panel и вставь вместо него:
+
+            <img
+              src="images/natalya.jpg"
+              alt="Наталья Жунёва"
+              style="width:100%; height:100%; object-fit:cover; border-radius:28px; position:relative; z-index:2;"
+            />
+
+            Если фото пока нет, можно оставить текущую премиальную карточку.
+          -->
+          <div class="hero-panel">
+            <small>Премиальный интерфейс</small>
+            <h3>Нежные синие тона, лёгкость и статусная подача</h3>
+            <p>
+              Такой дизайн создаёт ощущение доверия, чистоты, вкуса и профессионального уровня.
+            </p>
+
+            <div class="mini-points">
+              <div class="mini-point">
+                <span class="mini-point-dot"></span>
+                <span>мягкая палитра без визуального шума</span>
+              </div>
+              <div class="mini-point">
+                <span class="mini-point-dot"></span>
+                <span>аккуратные стеклянные карточки</span>
+              </div>
+              <div class="mini-point">
+                <span class="mini-point-dot"></span>
+                <span>дорогая и воздушная подача сайта</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         БЛОК ОБО МНЕ
+         ========================================================= -->
+    <!--
+      ВАЖНО:
+      Для всех карточек с классом .glass-card включён одинаковый hover-эффект.
+      При наведении меняется цвет только у конкретного блока под курсором.
+    -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="eyebrow">Обо мне</div>
+        <h2 class="section-title">Дизайн, в котором есть вкус, структура и ощущение ценности</h2>
+        <p class="section-text">
+          Я создаю визуал, который помогает бренду выглядеть сильнее, аккуратнее и дороже.
+          Мне важно, чтобы каждая деталь работала на общее впечатление и доверие клиента.
+        </p>
+
+        <div class="about-grid">
+          <div class="glass-card about-main">
+            <h3>Здравствуйте! Я Наталья Жунёва</h3>
+            <p>
+              Я работаю в сфере графического дизайна и визуальной упаковки. Помогаю
+              малому бизнесу, экспертам и мастерам красиво и профессионально представить
+              себя в интернете.
+            </p>
+            <p>
+              Мне близок стиль, в котором сочетаются чистота, мягкость, смысл и ощущение
+              премиальной подачи. Я люблю дизайн, который выглядит легко, но при этом
+              производит сильное впечатление.
+            </p>
+
+            <div class="feature-list">
+              <div class="feature-item">
+                <div class="feature-icon">✦</div>
+                <div>
+                  <strong>Премиальная эстетика</strong>
+                  <span>Мягкий визуал, чистая композиция и аккуратные детали.</span>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">✦</div>
+                <div>
+                  <strong>Индивидуальная подача</strong>
+                  <span>Каждый проект оформляется под конкретную нишу и задачу.</span>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">✦</div>
+                <div>
+                  <strong>Дизайн с целью</strong>
+                  <span>Важно не только красиво, но и понятно, убедительно и эффективно.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card about-side">
+            <h3>Что я создаю</h3>
+            <p>
+              Я помогаю собрать цельный визуальный образ проекта — от первого впечатления
+              до аккуратной и продуманной подачи всех материалов.
+            </p>
+
+            <div class="about-mini-grid">
+              <div class="about-mini-box">
+                <h4>Оформление соцсетей</h4>
+                <p>Обложки, шаблоны, графика и единый визуальный стиль для аккаунта.</p>
+              </div>
+
+              <div class="about-mini-box">
+                <h4>Инфографика</h4>
+                <p>Карточки товара и продающая визуальная подача для маркетплейсов.</p>
+              </div>
+
+              <div class="about-mini-box">
+                <h4>Сайты-визитки</h4>
+                <p>Современные и эстетичные сайты для презентации услуг и бренда.</p>
+              </div>
+
+              <div class="about-mini-box">
+                <h4>Рекламный дизайн</h4>
+                <p>Баннеры, презентации и материалы для продвижения и упаковки бизнеса.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         УСЛУГИ
+         ========================================================= -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="eyebrow">Услуги</div>
+        <h2 class="section-title">Дизайнерские решения для тех, кто ценит стиль и качество</h2>
+        <p class="section-text">
+          Этот блок уже готов для сайта. При желании ты можешь сократить или заменить
+          услуги под своё актуальное направление работы.
+        </p>
+
+        <div class="services-grid">
+
+          <article class="glass-card service-card">
+            <div class="service-number">01</div>
+            <h3>Оформление социальных сетей</h3>
+            <p>
+              Создание единого визуального стиля для страниц экспертов, мастеров и бизнеса.
+            </p>
+            <ul>
+              <li>обложки и баннеры</li>
+              <li>визуал постов и сторис</li>
+              <li>единая стилистика аккаунта</li>
+              <li>оформление профиля и сообщества</li>
+            </ul>
+          </article>
+
+          <article class="glass-card service-card">
+            <div class="service-number">02</div>
+            <h3>Инфографика для маркетплейсов</h3>
+            <p>
+              Эстетичные и понятные карточки товаров, которые помогают выгодно показать продукт.
+            </p>
+            <ul>
+              <li>карточки товара</li>
+              <li>выделение преимуществ</li>
+              <li>визуал под площадку</li>
+              <li>оформление в стиле бренда</li>
+            </ul>
+          </article>
+
+          <article class="glass-card service-card">
+            <div class="service-number">03</div>
+            <h3>Сайт-визитка</h3>
+            <p>
+              Лёгкий, современный и дорогой по подаче сайт для презентации услуг и портфолио.
+            </p>
+            <ul>
+              <li>структура сайта</li>
+              <li>визуальная концепция</li>
+              <li>дизайн блоков</li>
+              <li>адаптация под телефон</li>
+            </ul>
+          </article>
+
+          <article class="glass-card service-card">
+            <div class="service-number">04</div>
+            <h3>Баннеры и рекламные макеты</h3>
+            <p>
+              Макеты для рекламы, запусков, акций и оформления онлайн-площадок.
+            </p>
+            <ul>
+              <li>баннеры для соцсетей и сайтов</li>
+              <li>афиши и объявления</li>
+              <li>акционные макеты</li>
+              <li>адаптация форматов</li>
+            </ul>
+          </article>
+
+          <article class="glass-card service-card">
+            <div class="service-number">05</div>
+            <h3>Презентации и PDF-материалы</h3>
+            <p>
+              Красивое оформление информации для клиентов, партнёров и презентации услуг.
+            </p>
+            <ul>
+              <li>презентации</li>
+              <li>коммерческие предложения</li>
+              <li>кейсы и гайды</li>
+              <li>визуальная упаковка материалов</li>
+            </ul>
+          </article>
+
+          <article class="glass-card service-card">
+            <div class="service-number">06</div>
+            <h3>Индивидуальный проект</h3>
+            <p>
+              Если задача нестандартная, я помогу подобрать формат и оформить её под ключ.
+            </p>
+            <ul>
+              <li>дизайн по задаче</li>
+              <li>упаковка проекта</li>
+              <li>визуал для запусков</li>
+              <li>комплексное оформление</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ПОРТФОЛИО
+         ========================================================= -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="eyebrow">Портфолио</div>
+        <h2 class="section-title">Примеры работ и направлений</h2>
+        <p class="section-text">
+          Сейчас здесь установлены красивые заглушки. Позже ты сможешь заменить их
+          на реальные изображения и кейсы.
+        </p>
+
+        <div class="portfolio-grid">
+
+          <article class="glass-card portfolio-card">
+            <div class="portfolio-preview">Место для проекта №1</div>
+            <div class="portfolio-content">
+              <h3>Оформление сообщества</h3>
+              <p>
+                Единый стиль для социальной сети: обложка, графика, визуальные шаблоны и подача бренда.
+              </p>
+              <span class="tag">VK</span>
+              <span class="tag">SMM-дизайн</span>
+              <span class="tag">Визуал</span>
+            </div>
+          </article>
+
+          <article class="glass-card portfolio-card">
+            <div class="portfolio-preview">Место для проекта №2</div>
+            <div class="portfolio-content">
+              <h3>Карточки товара</h3>
+              <p>
+                Подача продукта через аккуратную инфографику, смысловые акценты и эстетичный дизайн.
+              </p>
+              <span class="tag">Маркетплейсы</span>
+              <span class="tag">Инфографика</span>
+              <span class="tag">CTR</span>
+            </div>
+          </article>
+
+          <article class="glass-card portfolio-card">
+            <div class="portfolio-preview">Место для проекта №3</div>
+            <div class="portfolio-content">
+              <h3>Сайт-визитка специалиста</h3>
+              <p>
+                Воздушный и дорогой по подаче сайт, который презентует услуги и помогает получать заявки.
+              </p>
+              <span class="tag">HTML</span>
+              <span class="tag">UI-дизайн</span>
+              <span class="tag">Лендинг</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ПРЕИМУЩЕСТВА
+         ========================================================= -->
+    <section class="section" id="values">
+      <div class="container">
+        <div class="eyebrow">Преимущества</div>
+        <h2 class="section-title">Почему со мной комфортно работать</h2>
+        <p class="section-text">
+          Этот блок хорошо усиливает доверие на сайте-визитке и показывает твой подход к работе.
+        </p>
+
+        <div class="value-grid">
+          <article class="glass-card value-card">
+            <h3>Аккуратность в деталях</h3>
+            <p>
+              Я внимательно отношусь к композиции, тексту, цветам и общей подаче, чтобы результат выглядел цельно.
+            </p>
+          </article>
+
+          <article class="glass-card value-card">
+            <h3>Понимание задачи клиента</h3>
+            <p>
+              Для меня важно не просто сделать красиво, а создать визуал, который решает конкретную задачу.
+            </p>
+          </article>
+
+          <article class="glass-card value-card">
+            <h3>Спокойный и понятный процесс</h3>
+            <p>
+              Работа строится поэтапно, с уважением к срокам, пожеланиям и комфортной коммуникации.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ЭТАПЫ РАБОТЫ
+         ========================================================= -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="eyebrow">Этапы работы</div>
+        <h2 class="section-title">Как проходит сотрудничество</h2>
+        <p class="section-text">
+          Структурный блок, который показывает клиенту, что всё будет ясно, комфортно и профессионально.
+        </p>
+
+        <div class="process-grid">
+          <article class="glass-card process-card">
+            <div class="process-step">01</div>
+            <h3>Заявка</h3>
+            <p>
+              Ты пишешь мне, рассказываешь о проекте, пожеланиях, сроках и задаче.
+            </p>
+          </article>
+
+          <article class="glass-card process-card">
+            <div class="process-step">02</div>
+            <h3>Анализ</h3>
+            <p>
+              Я изучаю нишу, подбираю направление и продумываю подачу будущего дизайна.
+            </p>
+          </article>
+
+          <article class="glass-card process-card">
+            <div class="process-step">03</div>
+            <h3>Создание дизайна</h3>
+            <p>
+              Разрабатываю макеты, согласовываю детали и вношу необходимые правки.
+            </p>
+          </article>
+
+          <article class="glass-card process-card">
+            <div class="process-step">04</div>
+            <h3>Готовый результат</h3>
+            <p>
+              Ты получаешь финальные материалы в удобном формате для публикации и работы.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ОТЗЫВЫ
+         ========================================================= -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="eyebrow">Отзывы</div>
+        <h2 class="section-title">Что говорят клиенты</h2>
+        <p class="section-text">
+          Пока здесь размещены примеры. Их можно заменить на реальные отзывы клиентов.
+        </p>
+
+        <div class="reviews-grid">
+          <article class="glass-card review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+              «Очень понравилась подача: всё выглядит аккуратно, дорого и профессионально.
+              Получился именно тот визуальный стиль, который хотелось.»
+            </p>
+            <div class="review-author">— Имя клиента / ниша</div>
+          </article>
+
+          <article class="glass-card review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+              «После оформления страница стала выглядеть цельно и намного сильнее.
+              Работа выполнена спокойно, внимательно и со вкусом.»
+            </p>
+            <div class="review-author">— Имя клиента / проект</div>
+          </article>
+
+          <article class="glass-card review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+              «Спасибо за красивый и современный дизайн. Очень приятно работать с человеком,
+              который слышит задачу и понимает, как подать её визуально.»
+            </p>
+            <div class="review-author">— Имя клиента / бизнес</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         КОНТАКТЫ
+         ========================================================= -->
+    <section class="section" id="contacts">
+      <div class="container">
+        <div class="eyebrow">Контакты</div>
+        <h2 class="section-title">Давайте обсудим ваш проект</h2>
+        <p class="section-text">
+          Если вам нужен стильный и премиальный визуал для бизнеса, сайта,
+          социальных сетей или продукта — напишите мне удобным способом.
+        </p>
+
+        <div class="contact-grid">
+          <div class="glass-card contact-card">
+            <h3>Связаться со мной</h3>
+            <p>
+              Вы можете написать мне напрямую или оставить заявку через форму справа.
+            </p>
+
+            <div class="contact-info">
+              <div class="contact-item">
+                <strong>Имя</strong>
+                <span>Наталья Жунёва</span>
+              </div>
+
+              <div class="contact-item">
+                <strong>Телефон</strong>
+                <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+              </div>
+
+              <div class="contact-item">
+                <strong>Email</strong>
+                <a href="mailto:youremail@example.com">youremail@example.com</a>
+              </div>
+
+              <div class="contact-item">
+                <strong>Telegram</strong>
+                <a href="https://t.me/your_username" target="_blank" rel="noopener noreferrer">@your_username</a>
+              </div>
+
+              <div class="contact-item">
+                <strong>ВКонтакте</strong>
+                <a href="https://vk.com/your_profile" target="_blank" rel="noopener noreferrer">vk.com/your_profile</a>
+              </div>
+            </div>
+
+            <p class="contact-note">
+              Здесь нужно заменить контакты на свои реальные данные.
+            </p>
+          </div>
+
+          <div class="glass-card contact-card">
+            <h3>Форма заявки</h3>
+
+            <!--
+              ВАЖНО:
+              Сейчас форма никуда не отправляет данные.
+              Это готовый визуальный блок.
+
+              Если позже захочешь подключить отправку, можно использовать:
+              - Formspree
+              - Telegram-бота
+              - почтовый обработчик
+              - CRM
+            -->
+            <form class="contact-form" action="#" method="post">
+              <input type="text" name="name" placeholder="Ваше имя" required />
+              <input type="tel" name="phone" placeholder="Телефон или Telegram" required />
+              <input type="text" name="service" placeholder="Какая услуга вас интересует?" />
+              <textarea name="message" placeholder="Кратко расскажите о задаче"></textarea>
+              <button type="submit" class="btn btn-primary">Отправить заявку</button>
+            </form>
+
+            <p class="contact-note">
+              Этот блок уже оформлен в премиальном стиле и адаптирован под мобильные устройства.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       ПОДВАЛ
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Наталья Жунёва. Все права защищены.</div>
+      <div>Премиальный сайт-визитка • нежные синие тона • HTML</div>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================
+       МОБИЛЬНОЕ МЕНЮ
+       Открывает и закрывает меню на телефоне
+       ========================================================= */
+    const burger = document.getElementById("burger");
+    const nav = document.getElementById("nav");
+
+    burger.addEventListener("click", function () {
+      nav.classList.toggle("open");
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>

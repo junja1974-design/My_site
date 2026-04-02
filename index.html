@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сайт-визитки — репозиторий</title>
+    <style>
+      :root {
+        --bg: #f4f9ff;
+        --card: rgba(255, 255, 255, 0.7);
+        --text: #16263f;
+        --muted: #6e85a3;
+        --accent: #5f8fcf;
+        --line: rgba(181, 210, 240, 0.65);
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #f8fbff 0%, #f2f8ff 50%, #eef5ff 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .wrap {
+        width: min(920px, calc(100% - 32px));
+        padding: 24px 0;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(24px, 3.5vw, 40px);
+        letter-spacing: -0.02em;
+      }
+      p {
+        margin: 0 0 22px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 18px 50px rgba(102, 145, 197, 0.08);
+      }
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 18px;
+      }
+      a.btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 1px solid transparent;
+        background: linear-gradient(135deg, var(--accent), #7aa9df);
+        color: #fff;
+      }
+      a.btn:focus-visible {
+        outline: 3px solid rgba(95, 143, 207, 0.35);
+        outline-offset: 3px;
+      }
+      .small {
+        margin-top: 14px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Сайт-визитки</h1>
+      <p>Две страницы проекта: базовая версия и версия с калькулятором стоимости.</p>
+
+      <section class="grid" aria-label="Ссылки на страницы проекта">
+        <div class="card">
+          <h2>Базовая визитка</h2>
+          <a
+            class="btn"
+            href="Сайт-визитка%202.html"
+            title="Открыть файл Сайт-визитка 2.html"
+            >Открыть</a
+          >
+          <div class="small">Файл: `Сайт-визитка 2.html`</div>
+        </div>
+
+        <div class="card">
+          <h2>Визитка + калькулятор</h2>
+          <a
+            class="btn"
+            href="Сайт-визитка%202%20калькулятор%20исправленный.html"
+            title="Открыть файл Сайт-визитка 2 калькулятор исправленный.html"
+            >Открыть</a
+          >
+          <div class="small">Файл: `Сайт-визитка 2 калькулятор исправленный.html`</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
